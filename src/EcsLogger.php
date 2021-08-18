@@ -14,6 +14,7 @@ use Illuminate\Support\Traits\ForwardsCalls;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Logger;
 use Monolog\Logger as Monolog;
+use Monolog\Handler\StreamHandler as StreamHandler;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -35,7 +36,7 @@ class EcsLogger implements LoggerInterface
 
     public function __construct(array $config)
     {
-        $handler = new RotatingFileHandler(
+        $handler = new StreamHandler(
             $config['with']['stream'],
             $this->level($config),
             $config['bubble'] ?? true,
