@@ -36,7 +36,7 @@ return [
         /*
          * Log user agent information on a request. Requires `jenssegers/agent`.
          */
-        'user_agent' => true,
+        'user_agent' => false,
         /*
          * Log command and console information.
          */
@@ -89,13 +89,11 @@ return [
 
     'defaults' => [
         'event' => [
-            'dataset' => \Illuminate\Support\Str::slug(env('APP_NAME')) . '.log',
         ],
         'service' => [
             'id' => null,
-            'name' => \Illuminate\Support\Str::slug(env('APP_NAME')),
+            'name' => env('APP_NAME'),
             'type' => null,
-            'version' => \Illuminate\Support\Facades\App::version(),
         ],
     ]
 ];

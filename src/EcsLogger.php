@@ -36,8 +36,7 @@ class EcsLogger implements LoggerInterface
     public function __construct(array $config)
     {
         $handler = new RotatingFileHandler(
-            $config['path'],
-            $config['days'] ?? 7,
+            $config['with']['stream'],
             $this->level($config),
             $config['bubble'] ?? true,
             $config['permission'] ?? null,
